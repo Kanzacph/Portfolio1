@@ -1,0 +1,597 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+a{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+  } 
+
+/* opacity spørg om gennemsigtigheden ift når jeg holder mussen over */
+a:hover{
+    
+    opacity: 0.5;
+    cursor: pointer;
+    position:relative;
+}
+
+.flexparent{
+    /* Hvis forældreren er i flextype, så kan vi bruge justify-content senere hen */
+    display: flex;
+}
+
+/* Menubjælke */
+.parent{
+    background-color: white;
+    padding: 0.5px;
+
+}
+
+
+.jaevnt{
+    /* fordel med ens luft i mellem børn */
+    justify-content: center;
+
+    
+}
+
+.child{
+    margin: 20px;
+    
+}
+
+  .flexcontainer1{
+      display: flex;
+      margin: 10px;
+  }
+
+.flexitem1{
+    padding: 0px;
+    margin-top: 200px;
+    text-align: center;
+    margin: 50px;
+  
+   
+}
+
+.flexitem2{
+    padding: 0px;
+    justify-content: right;
+    margin: 70px;
+   
+   
+}
+
+/* Styling af de forskellige menupunkter (active highlight osv) */
+
+.portfolio_style{
+    text-decoration: underline;
+}
+
+.om_style{
+    text-decoration: underline;
+}
+
+/* .tutorials_style{
+    text-decoration: underline;
+}
+
+.referencer_style{
+    text-decoration: underline;
+} */
+
+.kontakt_style{
+    text-decoration: underline;
+}
+
+.forside_style{
+    text-decoration: underline;
+}
+
+.billedeafmig{
+    justify-content: flex-end;
+    border-radius: 100px;
+    margin-right: 150px;
+}
+
+h1{
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    font-size: 55px;
+    color: black;
+   
+}
+
+p{
+    margin: 0px;
+}
+
+.citat{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color:black;
+    margin: 0px;
+}
+
+.gaaseoejne{
+    color:black;
+    font-size: 100px;
+    margin-top: 80px;
+}
+
+.link_til_portfolio{
+    color: white;
+    border: rgb(126, 56, 56) solid 10px;
+    border-radius: 50px;
+    padding: 20px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgb(126, 56, 56);
+}
+
+
+
+
+
+
+/* Portfolio */
+
+/* Portfoliobilleder med deres hovertekst-effekt: https://www.youtube.com/watch?v=exb2ab72Xhs */
+
+/* Grafiskdesign (brochure) */
+
+.image_grafiskdesign{
+    position: relative;
+    width: 400px;
+    margin-left: 200px;
+}
+
+.image__grafiskdesign{
+    display: block; 
+    width: 100%;
+}
+
+.image_overlay1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Vandret og lodret centreret */
+    justify-content: center;
+    /* Animationen hovereffekt: Den er gemt væk by default */
+    opacity: 0;
+    /* Hvor hurtigt overgangen af hover-effekten skal være */
+    transition: opacity 0.25s;
+}
+
+/* VI VIL GERNE HAVE BILLEDET BLIVER SLØRET VED HOVER: */
+
+/* Vi har lavet en ny klasse i html-filen ved image_overlay1, så nu har den to klasser der også inkluderer blur-klassen */
+.image_overlay1--blur{
+     backdrop-filter: blur(5px);
+}
+
+/* VI VIL GERNE HAVE AT OVERGANGEN KOMMER NEDE FRA OG OP: */
+
+/* Vi påvirker alle børn af imageoverlay, hvilket er titlen og beskrivelsen. */
+.image_overlay1 > * {
+    /* Børnene bliver rykket ned 20 pixels fra dens originale position */
+    transform: translateY(20px);
+    /* Overgangen er det samme som oppe ved .image_overlay1 ovenfor */
+    transition: transform 0.25s;
+}
+
+.image_overlay1:hover > *{
+    /* Den kører opad nu */
+    transform: translateY(0);
+}
+
+
+.image_overlay1:hover{
+    /* Animationen hovereffekt: Når man holder over, så burde gennemsigtigheden kunne ses lidt da den er sat på 0 */
+    opacity: 1;
+}
+
+.image_title1{
+    /* Sets the font-size 2 times the current font-size */
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.image_description1{
+    font-size: 1.25em;
+
+    /* Sætter space mellem titel og beskrivelse fra toppen af */
+    margin-top: 1.25em;
+}
+
+
+
+/* Har lavet den største parent her, som gør det muligt for dem at være flexbox, så jeg kan have dem ved siden af hinanden: Logo og grafisk design */
+.container_grafiskdesign{
+    display: flex;
+    padding: 0px;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+
+/* Logo */
+.image_grafiskdesign2{
+    position: relative;
+    width: 400px;
+    margin-right: 200px;
+}
+
+.image__grafiskdesign2{
+    display: block; 
+    width: 100%;
+}
+
+.image_overlay2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.image_overlay2--blur{
+     backdrop-filter: blur(5px);
+}
+
+.image_overlay2 > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.image_overlay2:hover > *{
+    transform: translateY(0);
+}
+
+
+.image_overlay2:hover{
+
+    opacity: 1;
+}
+
+.image_title2{
+
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.image_description2{
+    font-size: 1.25em;
+
+    margin-top: 1.25em;
+}
+
+
+
+/* Videoredigering og billederedigering */
+.container_grafiskdesign2{
+    display: flex;
+    padding: 0px;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+/* Videoredigering */
+.image_videoredigering{
+    position: relative;
+    width: 400px;
+    margin-left: 200px;
+    margin-bottom: 20px;
+}
+
+.image__videoredigering{
+    display: block; 
+    width: 100%;
+}
+
+.image_overlay3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.image_overlay3--blur{
+     backdrop-filter: blur(5px);
+}
+
+.image_overlay3 > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.image_overlay3:hover > *{
+    transform: translateY(0);
+}
+
+
+.image_overlay3:hover{
+
+    opacity: 1;
+}
+
+.image_title3{
+
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.image_description3{
+    font-size: 1.25em;
+
+    margin-top: 1.25em;
+}
+
+
+/* Billedredigering */
+.image_billederedigering{
+    position: relative;
+    width: 400px;
+    margin-right: 200px;
+    margin-bottom: 20px;
+}
+
+.image__billederedigering{
+    display: block; 
+    width: 100%;
+}
+
+.image_overlay4{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.image_overlay4--blur{
+     backdrop-filter: blur(5px);
+}
+
+.image_overlay4 > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.image_overlay4:hover > *{
+    transform: translateY(0);
+}
+
+
+.image_overlay4:hover{
+
+    opacity: 1;
+}
+
+.image_title4{
+
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.image_description4{
+    font-size: 1.25em;
+
+    margin-top: 1.25em;
+}
+ 
+/* Overskrifterne */
+.container_grafiskdesign_overskrift1{
+    display: flex;
+      /* Ingen padding ellers rykker flexboksene efter hinanden. Det vil helst styres med margin */
+    padding: 0px;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.overskriften1{
+    font-size: 10px;
+    color: white;
+    margin-left: 215px;
+}
+.overskriften2{
+    font-size: 30px;
+    color: white;
+    margin-right: 340px;
+}
+
+    .container_grafiskdesign_overskrift2{
+        display: flex;
+           /* Ingen padding ellers rykker flexboksene efter hinanden. Det vil helst styres med margin */
+        padding: 0px;
+        margin-top: 50px;
+        justify-content: space-between;
+    }
+
+.overskriften3{
+    font-size: 30px;
+    color: white;
+    margin-left: 195px;
+}
+.overskriften4{
+    font-size: 30px;
+    color: white;
+    margin-right: 205px;
+}
+
+.container_om{
+    height: 75vh;
+    width: 30%;
+    background: rgba(0,0,0,.6);
+         /* Sætter boksen i midten. Top og left er ligesom at skubbe dem */
+    position: absolute;
+     top: 55%;
+     left: 50%;
+     transform: translate(-50%, -50%); 
+     padding: 0 50px;
+}
+
+.img_om{
+    height: 100px;
+    width: 100px;
+    background: url(/images/billedemig.jpg) no-repeat;
+    background-size: cover; 
+    border-radius: 50px;
+    margin-left: 170px;
+    margin-top: -40px;
+}
+
+.container_om h1{
+    color: white;
+    text-align: center;
+    font-family: quicksand, sans-serif;
+}
+
+.container_om p{
+    color:white;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 25px;
+}
+
+.kontakt_titel{
+        margin-top: 100px;
+        color: #fff;    
+        text-transform: uppercase;
+        /* Overgang */
+    transition: all 4s ease-in-out;
+}
+
+.kontakt_titel h1{
+    color: black;
+    font-size: 32px;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 14px;
+    padding: 10px;
+    
+}
+
+form{
+    margin-top: 50px;
+    transition: all 4s ease-in-out;
+}
+
+.form-control{
+    width: 600px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    color: black;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+input{
+    height: 45px;
+}
+
+form .submit{
+    background: rgb(195, 193, 193);
+    border: 1px solid black;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    height: 50px;
+    margin-top: 20px;
+    
+}
+
+form .submit:hover{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Sociale medier ikoner styling: https://www.youtube.com/watch?v=hqlu47FX_q8 */
+.socialmedia ul {
+    position: absolute;
+    top: 630px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+/* Fjerner punkterne */
+.socialmedia ul li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+/* Størrelsen på ikonerne, farven og overgang (hvilket virker skidt indtil videre)  */
+.socialmedia ul li .fab {
+    color: #000000;
+    font-size: 25px;
+    line-height: 50px;
+    transition: .5s;
+}
+
+
+ .socialmedia ul li a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    transition: 0.5s;
+    transform: translate(0,0px);
+    /* Skyggen under de runde sociale medier bokse */
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Gør at de hopper op, når man holder musen over */
+.socialmedia ul li a:hover {
+    transform: rotate(0deg) skew(0deg) translate(0, -10px);
+}
+
+
+
+
+
